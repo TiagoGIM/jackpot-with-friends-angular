@@ -1,0 +1,8 @@
+<div class="selected-numbers ">
+    <div *ngFor="let num of selectedNumbers;let i = index"   class="number-ball-item"
+        (click)="emitSelectedNumber(i)">
+
+    <!-- <div *ngFor="let num of selectedNumbers;let i = index" class="number-ball-item" (click)="emitSelectedNumber(i)"> -->
+        <div [class.editing]="isEditing(i)" style="width: fit-content;"> {{ num !== null ? (num < 10 ? '0' + num : num.toString()) : '' }} </div>
+    </div>
+</div>

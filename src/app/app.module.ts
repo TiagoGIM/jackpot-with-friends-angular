@@ -7,6 +7,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MenuPagesComponent } from './components/menu-pages/menu-pages.component';
 import { TicketNumbersSelectorComponent } from './components/ticket-numbers-selector/ticket-numbers-selector.component';
 import { CreateTicketComponent } from './pages/create-ticket/create-ticket.component';
+import { NumbersBallComponent } from './components/numbers-ball/numbers-ball.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CreateTicketComponent } from './pages/create-ticket/create-ticket.compo
     NavbarComponent,
     MenuPagesComponent,
     TicketNumbersSelectorComponent,
-    CreateTicketComponent
+    CreateTicketComponent,
+    NumbersBallComponent
   ],
   imports: [
     BrowserModule,

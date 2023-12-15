@@ -1,8 +1,11 @@
 <div class="number-picker-container">
-    <jwf-ticket-numbers-selector
-    [allNumbers]="allNumbers" 
-    [selectedNumbers]="selectedNumbers"
-    [(selectedNumbers)]="selectedNumbers"
-    [(editingIndex)]="editingIndex"
-    [ticketLength]="9"/>
+    <jwf-ticket-numbers-selector 
+        [allNumbers]="allNumbers" 
+        [selectedNumbers]="selectedNumbers"
+        [(selectedNumbers)]="selectedNumbers" 
+        [(editingIndex)]="editingIndex" [ticketLength]="9" />
+    <br>
+    <jwf-numbers-ball 
+        [selectedNumbers]="selectedNumbers" 
+        [(editSelected)]="editingIndex" />
 </div>
