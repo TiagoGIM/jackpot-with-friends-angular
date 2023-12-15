@@ -4,3 +4,45 @@ body {
     margin: 0;
     padding: 0;
 }
+
+/* Background Color Classes */
+.bg-green-10 {
+  background-color: hsl(120, 100%, 90%);
+}
+
+.bg-green-30 {
+  background-color: hsl(120, 100%, 70%);
+}
+
+.bg-green-50 {
+  background-color: hsl(120, 100%, 50%);
+}
+
+.bg-green-70 {
+  background-color: hsl(120, 100%, 30%);
+}
+
+.bg-green-90 {
+  background-color: hsl(120, 100%, 10%);
+}
+
+/* Text Color Classes */
+.txt-green-10 {
+  color: hsl(120, 100%, 90%);
+}
+
+.txt-green-30 {
+  color: hsl(120, 100%, 70%);
+}
+
+.txt-green-50 {
+  color: hsl(120, 100%, 50%);
+}
+
+.txt-green-70 {
+  color: hsl(120, 100%, 30%);
+}
+
+.txt-green-90 {
+  color: hsl(120, 100%, 10%);
+}
