@@ -1,1 +1,8 @@
-<p>create-ticket works!</p>
+<div class="number-picker-container">
+    <jwf-ticket-numbers-selector
+    [allNumbers]="allNumbers" 
+    [selectedNumbers]="selectedNumbers"
+    [(selectedNumbers)]="selectedNumbers"
+    [(editingIndex)]="editingIndex"
+    [ticketLength]="9"/>
+</div>
