@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  jackpot-web:
+    image: angular_v16
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env    
+    environment:
+      - NODE_ENV:dev
+      - PORT:4200
+    ports:
+      - 8080:4200
+    volumes:
+      - ./:/home/app
+      - /home/app/node_modules
