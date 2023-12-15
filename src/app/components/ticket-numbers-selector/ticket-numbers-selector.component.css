@@ -1,0 +1,47 @@
+.container{
+    min-width: 18rem;
+    max-width: 18.5rem;
+    background-color: rgb(255, 244, 196);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+  }
+
+  .number-grid {
+    padding: 1rem;
+    margin: 0;
+    max-width: 16.5rem;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    justify-content: center;
+  }
+
+  .number-item {
+    display: flex;
+    font-size: 14px;
+    border-left: 1px solid #e06a0998;
+    border-right: 1px solid #e06a0998;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    color: rgba(224, 41, 9, 0.699);
+    cursor: pointer;
+    height: 1rem;
+    width: 1.1rem;
+    margin-right: 0.5rem;
+  }
+
+  .selected-mark {
+    background-color: rgb(89, 0, 255);
+    border-radius: 50%;
+  }
+
+  .number-item:nth-child(10n) {
+    margin-right: 0;
+  }
+
+  .number-item:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }

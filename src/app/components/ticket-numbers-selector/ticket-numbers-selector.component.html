@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="number-grid">
+        <div *ngFor="let num of allNumbers; let i = index"  class="number-item"   (click)="selectNumber(num)">
+          <span [class.selected-mark]="isSelected(num)">
+            {{ num < 10 ? '0' + num : num }} </span>
+        </div>
+      </div>
+</div>
