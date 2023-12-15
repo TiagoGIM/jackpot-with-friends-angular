@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    max-width:320px;
+    text-align: center;
+    color: #006633;
+    
+}
+  
+  .ops-gif {
+    padding-top: 5em;
+    max-width: 100%;
+    height: auto;    
+    display: block;  
+    margin: 0 auto;    
+}
