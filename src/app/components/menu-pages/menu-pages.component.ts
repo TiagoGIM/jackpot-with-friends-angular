@@ -18,7 +18,7 @@ export class MenuPagesComponent {
   @Input() options: any = [
     {
       name: 'Home',
-      value: 'create-ticket',
+      value: 'home',
     },
     {
       name: 'Bilhetes',
@@ -26,7 +26,7 @@ export class MenuPagesComponent {
     },
     {
       name: 'Estatisticas',
-      value: 'create-ticket',
+      value: 'articles',
     },
   ];
   @Output() optionSelected = new EventEmitter<string>();
