@@ -1,0 +1,9 @@
+<div class="menu-btn">
+    <button (click)="handleIsOpen()" >☰</button>
+    <div  class="dropdown" [class.isOpen]="isOpen" >
+        <ul class="list">
+            <li *ngFor="let option of options">
+                <a  [routerLink]="option.value" (click)="handleIsOpen()">{{option.name}}</a></li>
+        </ul>
+    </div>
+</div>

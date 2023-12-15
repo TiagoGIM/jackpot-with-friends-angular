@@ -1,0 +1,51 @@
+.menu-btn {
+    border: none;
+    font-size: 1.5rem;
+    position: relative;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.dropdown{
+    display: none;
+    position: absolute;
+    left: -5em;
+    top: 0.8em;
+    width: 6em;
+    overflow: auto;
+    box-shadow: 0.2em 0.2em 0.5em #ccc;
+    background-color: #108d5b;
+    border-radius: 0.1em;
+}
+
+.isOpen{
+    display: block;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color:#fff;
+    padding: 0.2em 0.3em;
+    display: block;
+    border-bottom: 1px solid #ccc;
+    font-size: 21px;
+
+}
+a:hover{
+    background-color: #11754fa4;
+}
+  
