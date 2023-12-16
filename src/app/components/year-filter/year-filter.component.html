@@ -1,0 +1,9 @@
+<div class="year-selector">
+    <button
+      *ngFor="let year of yearOptions"
+      [class.selected]="selectedYear === year.value"
+      (click)="selectYear(year.value)"
+    >
+      {{ year.label }}
+    </button>
+  </div>

@@ -1,0 +1,27 @@
+
+.year-selector {
+    display: flex;
+    gap: 8px; /* Espaço entre os botões */
+  }
+  
+  button {
+    padding: 0.1rem 0.8rem;
+    cursor: pointer;
+    border: 1px solid #3498db; /* Adiciona uma borda ao redor do botão */
+    border-radius: 20px; /* Borda arredondada para criar o efeito de chips */
+    background-color: #fff;
+    color: #3498db;
+    outline: none;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  button:active {
+    background-color: #3498db; /* Cor de fundo ao clicar */
+    border-radius: 20px;
+    color: #fff; /* Cor do texto ao clicar */
+  }
+  
+  button.selected {
+    background-color: #27ae60;
+    color: #fff;
+  }
