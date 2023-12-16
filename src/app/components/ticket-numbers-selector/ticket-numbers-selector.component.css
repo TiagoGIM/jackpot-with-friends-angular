@@ -37,6 +37,12 @@
   .selected-mark {
     background-color: rgb(89, 0, 255);
     border-radius: 50%;
+    color: aliceblue;
+  }
+
+  .most-picked {
+    background-color: rgba(104, 0, 87, 0.384);
+    border-radius: 90%;
   }
 
   .number-item:nth-child(10n) {

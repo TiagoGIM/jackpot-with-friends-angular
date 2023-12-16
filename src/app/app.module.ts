@@ -14,6 +14,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TicketsEffects } from './store/ticket.effects';
 import { ticketsReducer } from './store/ticket.reducers';
+import { YearFilterComponent } from './components/year-filter/year-filter.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ticketsReducer } from './store/ticket.reducers';
     NumbersBallComponent,
     PageNotFoundComponent,
     ArticlesComponent,
+    YearFilterComponent,
   ],
   imports: [
     BrowserModule,

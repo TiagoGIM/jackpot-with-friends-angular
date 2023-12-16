@@ -1,16 +1,13 @@
 import { createReducer, on } from '@ngrx/store';
 import * as TicketsActions from './ticket.actions';
-import { Ticket } from '../shared/models/ticket.model';
+import { Ticket, mostPicked } from '../shared/models/ticket.model';
 
 export interface ticketState {
   tickets: Ticket[];
   mostPickeds: mostPicked[];
 }
 
-interface mostPicked {
-  year: number;
-  numbers: number[];
-}
+
 
 export const initialState: ticketState = {
   tickets: [

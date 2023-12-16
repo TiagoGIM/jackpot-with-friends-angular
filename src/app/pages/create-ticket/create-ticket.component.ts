@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { mostPickedSelector, selectMostPickedNumbersByYear} from 'src/app/store/ticket.selectors';
 
 @Component({
   selector: 'jwf-create-ticket',
@@ -11,9 +13,19 @@ export class CreateTicketComponent {
   ticketLength: number = 6;
   editingIndex = 0;
 
-  constructor() {
+  yearOptions = [
+    { value: 2022, label: '2022' },
+    { value: 2023, label: '2023' },
+    { value: 0, label: 'Todos' },
+    { value: 1, label: 'x' },
+  ]
+
+  constructor(private store : Store<any>) {
     this.initializeNumbers();
   }
+
+
+  mostPickedNumbersFor2022$ = this.store.select(mostPickedSelector);
 
   private initializeNumbers() {
     const totalNumbers = 60;
@@ -23,7 +35,9 @@ export class CreateTicketComponent {
     );
   }
 
-  isSelected(num: number): boolean {
-    return this.selectedNumbers.includes(num);
+  selectedYear: number = 1;
+
+  onYearSelected(year: number): void {
+    this.selectedYear = year;
   }
 }

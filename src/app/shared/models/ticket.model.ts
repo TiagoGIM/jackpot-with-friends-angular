@@ -4,3 +4,8 @@ export interface Ticket {
     status : string,
     length: number,
 }
+
+export interface mostPicked {
+    year: number;
+    numbers: number[];
+  }

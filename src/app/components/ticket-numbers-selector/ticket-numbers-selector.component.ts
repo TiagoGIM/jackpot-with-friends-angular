@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { mostPicked } from 'src/app/shared/models/ticket.model';
 
 @Component({
   selector: 'jwf-ticket-numbers-selector',
@@ -6,12 +7,14 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./ticket-numbers-selector.component.css']
 })
 export class TicketNumbersSelectorComponent {
+  @Input() mostPickeds? : mostPicked[] | null= [];
   @Input() allNumbers: number[] = [];
   @Input() ticketLength: number = 6;
   @Input() selectedNumbers: any[] = [];
   @Input() editingIndex :number = 0
   @Output() selectedNumbersChange = new EventEmitter<number[]>();
   @Output() editingIndexChange = new EventEmitter<number>();
+  @Input() year : number = 1
 
 
   selectNumber(number: number) {
@@ -31,5 +34,10 @@ export class TicketNumbersSelectorComponent {
 
   isSelected(num: number): boolean {
     return this.selectedNumbers.includes(num);
+  }
+
+  isMostPicked(num:number) : boolean {
+    const mostPicked = this.mostPickeds?.find((mostPicked) => mostPicked.year === this.year) 
+    return mostPicked?.numbers?.includes(num) ?? false
   }
 }
