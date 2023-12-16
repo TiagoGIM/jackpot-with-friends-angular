@@ -5,3 +5,40 @@
   align-items: center;
   justify-content: center;
 }
+
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  column-gap: 2rem;
+}
+
+.save-button,
+.clear-button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.save-button {
+  background-color: #4caf50; /* Cor verde para "Salvar" */
+  color: #fff;
+}
+
+.clear-button {
+  background-color: #f44336; /* Cor vermelha para "Limpar" */
+  color: #fff;
+}
+
+.save-button:hover,
+.clear-button:hover {
+  background-color: #45a049; /* Cor verde escura ao passar o mouse sobre "Salvar" */
+}
+
+.clear-button:hover {
+  background-color: #d32f2f; /* Cor vermelha escura ao passar o mouse sobre "Limpar" */
+}
