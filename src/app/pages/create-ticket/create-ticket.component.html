@@ -6,13 +6,28 @@
         [selectedNumbers]="selectedNumbers"
         [(selectedNumbers)]="selectedNumbers" 
         [(editingIndex)]="editingIndex" [ticketLength]="9" />
-    <br>
+    
+    <p class="txt-green-70">Números mais escolhidos no ano:</p>
     <jwf-year-filter
     [yearOptions]="yearOptions"
     (yearSelected)="onYearSelected($event)"/>
     <br>
-
+    <br>
+    <br>
+    <h3 class="txt-green-90">
+       Seus números até agora:
+    </h3>
     <jwf-numbers-ball 
         [selectedNumbers]="selectedNumbers" 
         [(editSelected)]="editingIndex" />
+    <br>
+    <br>
+    <br>
+    <br>
+
+    
+    <div class="button-group">
+        <button class="save-button" (click)="saveNumbers()">Salvar</button>
+        <button class="clear-button" (click)="clearNumbers()">Limpar</button>
+    </div>
 </div>

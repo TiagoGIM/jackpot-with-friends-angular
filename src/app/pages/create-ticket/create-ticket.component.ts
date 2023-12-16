@@ -8,6 +8,13 @@ import { mostPickedSelector, selectMostPickedNumbersByYear} from 'src/app/store/
   styleUrls: ['./create-ticket.component.css'],
 })
 export class CreateTicketComponent {
+clearNumbers() {
+  this.selectedNumbers = Array(this.ticketLength).fill(null);
+  this.editingIndex = 0;
+}
+saveNumbers() {
+throw new Error('Method not implemented.');
+}
   selectedNumbers: number[] = Array(6).fill(null);
   allNumbers: number[] = [];
   ticketLength: number = 6;

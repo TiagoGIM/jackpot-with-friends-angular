@@ -1,3 +1,13 @@
+.selected-numbers {
+  display: flex;
+  row-gap: 0.5rem;
+  column-gap: 0.7rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 20rem;
+}
+
 .number-ball-item {
     display: flex;
     align-items: center;
@@ -17,15 +27,6 @@
   
   .number-ball-item:hover {
     background-color: #3498dbc0; /* Altere para a cor desejada ao passar o mouse */
-  }
-  
-  .selected-numbers {
-    display: flex;
-    row-gap: 0.5rem;
-    column-gap: 0.7rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
   }
   
   .editing {
