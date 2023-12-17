@@ -15,5 +15,27 @@ services:
     volumes:
       - ./:/home/app
       - /home/app/node_modules
-      
-    
+
+  api:
+    container_name: jack-pot-api
+    image: nestjs
+    environment:
+      - NODE_ENV:${NODE_ENV}
+      - PORT:${BACKEND_PORT}
+    build:
+      context: ../jackpot-api
+      target: "${NODE_ENV}"
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    entrypoint: ["npm", "run", "start:${NODE_ENV}"]
+    ports:
+      - 3000:3000
+
+    networks:
+      - nesjs-network
+    volumes:
+      - ../jackpot-api/:/home/app
+      - /home/app/node_modules
+networks:
+  nesjs-network:
