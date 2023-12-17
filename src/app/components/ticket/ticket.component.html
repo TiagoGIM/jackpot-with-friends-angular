@@ -1,9 +1,16 @@
 <div class="ticket">
-    <h3>Aposta {{ ticket.length }} números</h3>
-    <p>Status: {{ ticket.status }}</p>
-    <p>Números :</p>
-    <jwf-numbers-ball
-    [selectedNumbers]="ticket.numbers"
-    >    
+    <div class="head">
+
+        <div class="label">
+            <h5 style="margin: 0.1rem;" class="txt-green-70">Bililhete </h5>
+            <h3 style="margin: 0.2rem ;" class="txt-green-90">{{ ticket.length }} números</h3>
+        </div>
+
+        <button class="status" [ngClass]="ticket.status ">
+            {{ ticket.status === 'active' ? ' Sugerir ' : 'Finalizado' }}
+        </button>
+    </div>
+
+    <jwf-numbers-ball [selectedNumbers]="ticket.numbers">
     </jwf-numbers-ball>
-  </div>
+</div>
