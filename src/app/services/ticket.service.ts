@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import { TicketsMockService } from './tickets.mock.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { Ticket } from '../shared/models/ticket.model';
-import { catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
+
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 
