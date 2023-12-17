@@ -1,0 +1,9 @@
+<div class="ticket">
+    <h3>Aposta {{ ticket.length }} números</h3>
+    <p>Status: {{ ticket.status }}</p>
+    <p>Números :</p>
+    <jwf-numbers-ball
+    [selectedNumbers]="ticket.numbers"
+    >    
+    </jwf-numbers-ball>
+  </div>
