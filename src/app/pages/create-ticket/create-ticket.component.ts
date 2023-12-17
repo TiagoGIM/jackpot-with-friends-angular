@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { mostPickedSelector, selectMostPickedNumbersByYear} from 'src/app/store/ticket.selectors';
+import { mostPickedSelector} from 'src/app/store/tickets/ticket.selectors';
 
 @Component({
   selector: 'jwf-create-ticket',

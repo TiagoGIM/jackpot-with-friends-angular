@@ -1,0 +1,7 @@
+<div class="container">
+    <div *ngFor="let ticket of tickets$ | async">
+        <!-- Display ticket details as needed -->
+        <jwf-ticket [ticket]="ticket"></jwf-ticket>
+        <!-- Add more fields as per your ticket structure -->
+      </div>
+</div>

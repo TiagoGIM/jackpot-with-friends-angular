@@ -5,24 +5,21 @@ import { Ticket } from '../shared/models/ticket.model';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TicketsService {
-
-  constructor(private ticketsMockService: TicketsMockService) {
-    const API_URL = environment.apiUrl
+  
+  API_URL = environment.apiUrl
+  constructor(private http: HttpClient) {
 
     console.log("enviroment  is production : ", environment.production)
+    console.log("API_URL:" ,this.API_URL)
   }
 
   loadTickets(): Observable<Ticket[]> {
-    return this.ticketsMockService.loadTickets().pipe(
-      catchError((error) => {
-        console.error('Error loading tickets:', error);
-        return of([]); // Tratar erro conforme necessário
-      })
-    );
+    return this.http.get<Ticket[]>(this.API_URL+'/ticket');
   }
 }
