@@ -15,6 +15,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TicketsEffects } from './store/ticket.effects';
 import { ticketsReducer } from './store/ticket.reducers';
 import { YearFilterComponent } from './components/year-filter/year-filter.component';
+import { environment } from 'src/environments/environment.development';
 
 @NgModule({
   declarations: [
@@ -42,4 +43,8 @@ import { YearFilterComponent } from './components/year-filter/year-filter.compon
   providers: [TicketsEffects],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(){
+    console.log('api',environment.apiUrl)
+  }
+}
