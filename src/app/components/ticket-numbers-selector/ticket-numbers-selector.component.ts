@@ -9,7 +9,7 @@ import { mostPicked } from 'src/app/shared/models/ticket.model';
 export class TicketNumbersSelectorComponent {
   @Input() mostPickeds? : mostPicked[] | null= [];
   @Input() allNumbers: number[] = [];
-  @Input() ticketLength: number = 6;
+  @Input() ticketLength: number | null= 6 ;
   @Input() selectedNumbers: any[] = [];
   @Input() editingIndex :number = 0
   @Output() selectedNumbersChange = new EventEmitter<number[]>();
@@ -21,7 +21,7 @@ export class TicketNumbersSelectorComponent {
     if (!this.isSelected(number)) {
       this.selectedNumbers[this.editingIndex] = number;
       this.editingIndex =
-      this.editingIndex < this.ticketLength-1 ? this.editingIndex + 1 : 0;
+      this.editingIndex < this.ticketLength! -1 ? this.editingIndex + 1 : 0;
     } else {
       this.editingIndex= this.selectedNumbers.indexOf(number);
       this.selectedNumbers[this.editingIndex] = null

@@ -10,6 +10,14 @@ export const ticketsSelector = createSelector(
     }
 )
 
+export const selectTicketById = (id: string) => createSelector(
+  appState,
+  (state: ticketState) => { 
+      return state.tickets.find(ticket => ticket.id === id)
+  }
+)
+
+
 export const mostPickedSelector = createSelector(
     appState,
     (state: ticketState) => {
@@ -30,7 +38,6 @@ export const selectMostPickedNumbersByYear = (year: number) =>
   createSelector(
     selectMostPickedsByYear(year),
     (mostPicked:any) => {
-        console.log(mostPicked?.numbers)
         return mostPicked?.numbers ?? []
     }
   );

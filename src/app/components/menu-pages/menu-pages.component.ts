@@ -22,7 +22,7 @@ export class MenuPagesComponent {
     },
     {
       name: 'Bilhetes',
-      value: 'create-ticket',
+      value: 'ticket-list',
     },
     {
       name: 'Estatisticas',

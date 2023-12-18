@@ -6,11 +6,11 @@ import { ArticlesComponent } from './pages/articles/articles.component';
 import { TicketListComponent } from './pages/ticket-list/ticket-list.component';
 
 const routes: Routes = [
-  {path: 'ticket', component: TicketListComponent},
+  {path: 'ticket-list', component: TicketListComponent},
   { path: 'articles', component: ArticlesComponent },
   { path: 'home', component: ArticlesComponent },
-  { path: 'create-ticket', component: CreateTicketComponent },
-  { path: '', redirectTo: '/ticket', pathMatch: 'full' },
+  { path: 'create-ticket/:id', component: CreateTicketComponent },
+  { path: '', redirectTo: '/ticket-list', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
 

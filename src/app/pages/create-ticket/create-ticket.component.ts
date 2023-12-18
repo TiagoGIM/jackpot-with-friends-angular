@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { mostPickedSelector} from 'src/app/store/tickets/ticket.selectors';
+import { Observable } from 'rxjs';
+import { Ticket } from 'src/app/shared/models/ticket.model';
+import {
+  mostPickedSelector,
+  selectTicketById,
+} from 'src/app/store/tickets/ticket.selectors';
 
 @Component({
   selector: 'jwf-create-ticket',
@@ -8,13 +14,13 @@ import { mostPickedSelector} from 'src/app/store/tickets/ticket.selectors';
   styleUrls: ['./create-ticket.component.css'],
 })
 export class CreateTicketComponent {
-clearNumbers() {
-  this.selectedNumbers = Array(this.ticketLength).fill(null);
-  this.editingIndex = 0;
-}
-saveNumbers() {
-throw new Error('Method not implemented.');
-}
+  clearNumbers() {
+    this.selectedNumbers = Array(this.ticketLength).fill(null);
+    this.editingIndex = 0;
+  }
+  saveNumbers() {
+    throw new Error('Method not implemented.');
+  }
   selectedNumbers: number[] = Array(6).fill(null);
   allNumbers: number[] = [];
   ticketLength: number = 6;
@@ -25,14 +31,28 @@ throw new Error('Method not implemented.');
     { value: 2023, label: '2023' },
     { value: 0, label: 'Todos' },
     { value: 1, label: 'x' },
-  ]
+  ];
 
-  constructor(private store : Store<any>) {
+  constructor(private store: Store<any>, private route: ActivatedRoute) {
     this.initializeNumbers();
+    this.idParam = this.route.snapshot.params['id'];
   }
-
+  selectTicketById$ : Observable<any> //this.store.select(selectTicketById(this.idParam));
+  | undefined//this.store.select(selectTicketById(this.idParam));
 
   mostPickedNumbersFor2022$ = this.store.select(mostPickedSelector);
+
+  idParam!: string;
+
+  ngOnInit(): void {
+    this.selectTicketById$ = this.store.select(selectTicketById(this.idParam));
+    this.selectTicketById$.subscribe({
+      next: (data :Ticket) => {
+        this.ticketLength = data?.length
+        if(!!data?.numbers.length) this.selectedNumbers =   data?.numbers
+      },
+    });
+  }
 
   private initializeNumbers() {
     const totalNumbers = 60;

@@ -6,7 +6,7 @@
             <h3 style="margin: 0.2rem ;" class="txt-green-90">{{ ticket.length }} números</h3>
         </div>
 
-        <button class="status" [ngClass]="ticket.status ">
+        <button class="status"  [routerLink]="['/create-ticket', ticket.id]" [ngClass]="ticket.status ">
             {{ ticket.status === 'active' ? ' Editar ' : 'Finalizado' }}
         </button>
     </div>
