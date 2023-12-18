@@ -1,4 +1,7 @@
 <div class="container">
+    <div  style="align-self: flex-start;;margin-left: 15%;">
+      <h2 class="txt-green-90" style="margin: 0.2em;">  Votar números. </h2>
+    </div>
     <div class="tickets" *ngFor="let ticket of tickets$ | async">
         <jwf-ticket [ticket]="ticket"></jwf-ticket>
       </div>

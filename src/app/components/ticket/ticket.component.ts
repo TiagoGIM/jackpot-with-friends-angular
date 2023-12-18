@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class TicketComponent {
   @Input() ticket: any;
+  emptyBalls : number[] = [1,2,3,4,5,6]
 }
