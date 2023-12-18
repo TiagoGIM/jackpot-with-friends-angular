@@ -18,6 +18,10 @@ import { YearFilterComponent } from './components/year-filter/year-filter.compon
 import { HttpClientModule } from '@angular/common/http';
 import { TicketListComponent } from './pages/ticket-list/ticket-list.component';
 import { TicketComponent } from './components/ticket/ticket.component';
+import { LoginComponent } from './pages/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { loginReducer } from './store/login/login.reducer';
+import { LoginCardComponent } from './components/login-card/login-card.component';
 
 @NgModule({
   declarations: [
@@ -32,18 +36,24 @@ import { TicketComponent } from './components/ticket/ticket.component';
     YearFilterComponent,
     TicketListComponent,
     TicketComponent,
+    LoginComponent,
+    LoginCardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({ ticket: ticketsReducer }),
+    FormsModule,
+    StoreModule.forRoot({ticket: ticketsReducer }),
+    EffectsModule.forRoot(TicketsEffects),
+    StoreModule.forFeature('login', loginReducer),
+    EffectsModule.forFeature(),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: false, // Restrict extension to log-only mode
       autoPause: true, // Pauses recording actions and state changes when the extension window is not open
     }),
-    EffectsModule.forRoot([TicketsEffects]),
+    
   ],
   providers: [TicketsEffects],
   bootstrap: [AppComponent],

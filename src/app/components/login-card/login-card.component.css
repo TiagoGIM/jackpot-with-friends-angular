@@ -1,0 +1,32 @@
+
+form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.6em;
+    border-left: 6px solid rgb(0, 255, 136);
+    background-color: lightgrey;
+    margin: 0.4em;
+    padding: 0 1em;
+    padding-bottom: 1em;
+    
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em 0.4em;
+    justify-content: flex-end;
+    padding: 0.5em 0.2em;
+    
+}
+
+.form-control {
+    padding: 0.6em;
+}
+
+button {
+    border: none;
+    height: 3em;
+    font-weight: bold;
+    color: green;
+}
