@@ -11,11 +11,12 @@
         </button>
     </div>
 
-    <jwf-numbers-ball *ngIf="!!ticket.numbers.length" [selectedNumbers]="ticket.numbers">
+    <jwf-numbers-ball [editable]="false" *ngIf="!!ticket.numbers.length" [selectedNumbers]="ticket.numbers">
     </jwf-numbers-ball>
     <div *ngIf="!ticket.numbers.length"  >
         <div class="selected-numbers ">
-            <div class="number-ball-item" *ngFor="let ball of emptyBalls"></div>
+            <div class="number-ball-item" *ngFor="let ball of emptyBalls">
+                {{ ball !== null ? (ball < 10 ? '0' + ball : ball.toString()) : '' }}</div>
         </div>
     </div>
 </div>

@@ -8,6 +8,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class NumbersBallComponent {
   @Input() selectedNumbers: number[] = [];
 
+  @Input() editable:boolean = true;
+
   @Output() editSelectedChange = new EventEmitter<number>();
 
   @Input() editSelected: number | null = 0;
@@ -17,6 +19,6 @@ export class NumbersBallComponent {
   }
 
   isEditing(index: number): boolean {
-    return index === this.editSelected;
+    return index === this.editSelected && this.editable;
   }
 }
