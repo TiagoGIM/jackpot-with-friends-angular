@@ -1,4 +1,4 @@
-<div class="number-picker-container">
+<div class="container">
     <jwf-ticket-numbers-selector 
         [mostPickeds]="mostPickedNumbersFor2022$ | async"
         [year]="selectedYear"
@@ -11,7 +11,6 @@
     <jwf-year-filter
     [yearOptions]="yearOptions"
     (yearSelected)="onYearSelected($event)"/>
-    <br>
     <br>
     <br>
     <h3 class="txt-green-90">
