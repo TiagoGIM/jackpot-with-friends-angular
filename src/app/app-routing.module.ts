@@ -5,14 +5,24 @@ import { CreateTicketComponent } from './pages/create-ticket/create-ticket.compo
 import { ArticlesComponent } from './pages/articles/articles.component';
 import { TicketListComponent } from './pages/ticket-list/ticket-list.component';
 import { LoginComponent } from './pages/login/login.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
-  {path:'login' , component : LoginComponent},
-  {path: 'ticket-list', component: TicketListComponent},
-  { path: 'articles', component: ArticlesComponent },
-  { path: 'home', component: ArticlesComponent },
-  { path: 'create-ticket/:id', component: CreateTicketComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent, data: { title: 'Login' } },
+  { path: 'ticket-list',
+    component: TicketListComponent,
+    canActivate: [AuthGuard],
+    data: {title: 'Bilhetes' },
+    children:[
+      { path: 'create-ticket/:id',
+        component: CreateTicketComponent 
+      },
+    ]},
+  { path: 'articles', component: ArticlesComponent ,
+  canActivate: [AuthGuard],},
+  { path: 'home', component: ArticlesComponent,
+  canActivate: [AuthGuard],},
   { path: '**', component: PageNotFoundComponent },
 ];
 

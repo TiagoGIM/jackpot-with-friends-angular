@@ -20,5 +20,5 @@ export class TicketsEffects {
     )
   );
 
-  constructor(private actions$: Actions, private ticketsService: TicketsService, private store: Store) {}
+  constructor(private actions$: Actions, private ticketsService: TicketsService) {}
 }

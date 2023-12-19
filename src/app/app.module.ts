@@ -19,9 +19,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { TicketListComponent } from './pages/ticket-list/ticket-list.component';
 import { TicketComponent } from './components/ticket/ticket.component';
 import { LoginComponent } from './pages/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { loginReducer } from './store/login/login.reducer';
 import { LoginCardComponent } from './components/login-card/login-card.component';
+import { LoginEffects } from './store/login/login.effects';
 
 @NgModule({
   declarations: [
@@ -44,10 +45,11 @@ import { LoginCardComponent } from './components/login-card/login-card.component
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     StoreModule.forRoot({ticket: ticketsReducer }),
     EffectsModule.forRoot(TicketsEffects),
     StoreModule.forFeature('login', loginReducer),
-    EffectsModule.forFeature(),
+    EffectsModule.forFeature(LoginEffects),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: false, // Restrict extension to log-only mode

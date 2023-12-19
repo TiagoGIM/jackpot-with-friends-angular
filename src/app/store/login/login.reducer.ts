@@ -1,8 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
 import { login, loginSuccess, loginFailure } from './login.actions';
+import { auth } from 'src/app/shared/models/auth.model';
 
 export interface LoginState {
-  token: string | null;
+  token: auth | null;
   error: string | null;
   isLoading: boolean;
 }
@@ -15,6 +16,6 @@ const initialState: LoginState = {
 
 export const loginReducer = createReducer(initialState,
   on(login, state => ({ ...state, isLoading: true })),
-  on(loginSuccess, (state, { token }) => ({ ...state, token, isLoading: false })),
+  on(loginSuccess, (state, { token }) => ({ ...state,error : null, token, isLoading: false })),
   on(loginFailure, (state, { error }) => ({ ...state, error, isLoading: false }))
 );
