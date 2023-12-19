@@ -10,19 +10,15 @@ import { AuthGuard } from './auth/auth.guard';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent, data: { title: 'Login' } },
-  { path: 'ticket-list',
+  {
+    path: 'ticket-list',
     component: TicketListComponent,
     canActivate: [AuthGuard],
-    data: {title: 'Bilhetes' },
-    children:[
-      { path: 'create-ticket/:id',
-        component: CreateTicketComponent 
-      },
-    ]},
-  { path: 'articles', component: ArticlesComponent ,
-  canActivate: [AuthGuard],},
-  { path: 'home', component: ArticlesComponent,
-  canActivate: [AuthGuard],},
+    data: { title: 'Bilhetes' }
+  },
+  {  path: 'create-ticket/:id', component: CreateTicketComponent,canActivate: [AuthGuard] },
+  { path: 'articles', component: ArticlesComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: ArticlesComponent, canActivate: [AuthGuard] },
   { path: '**', component: PageNotFoundComponent },
 ];
 
