@@ -49,7 +49,7 @@ export class CreateTicketComponent {
     this.selectTicketById$.subscribe({
       next: (data :Ticket) => {
         this.ticketLength = data?.length
-        if(!!data?.numbers.length) this.selectedNumbers =   data?.numbers
+        if(!!data?.numbers.length) this.selectedNumbers =  [ ...data?.numbers]
       },
     });
   }
