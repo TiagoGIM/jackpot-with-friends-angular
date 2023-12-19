@@ -15,7 +15,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TicketsEffects } from './store/tickets/ticket.effects';
 import { ticketsReducer } from './store/tickets/ticket.reducers';
 import { YearFilterComponent } from './components/year-filter/year-filter.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TicketListComponent } from './pages/ticket-list/ticket-list.component';
 import { TicketComponent } from './components/ticket/ticket.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -23,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { loginReducer } from './store/login/login.reducer';
 import { LoginCardComponent } from './components/login-card/login-card.component';
 import { LoginEffects } from './store/login/login.effects';
+import { AuthInterceptorService } from './auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,12 @@ import { LoginEffects } from './store/login/login.effects';
     }),
     
   ],
-  providers: [TicketsEffects],
+  providers: [TicketsEffects,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }],
   bootstrap: [AppComponent],
 })
 export class AppModule {

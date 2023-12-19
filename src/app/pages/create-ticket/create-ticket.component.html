@@ -26,7 +26,8 @@
 
     
     <div class="button-group">
-        <button class="save-button" (click)="saveNumbers()">Salvar</button>
+        <button class="save-button" (click)="saveNumbers()" *ngIf="!invalidNumbers()">Salvar</button>
+        <button class="back-button" [routerLink]="['/ticket-list']" *ngIf="invalidNumbers()"> Voltar</button>
         <button class="clear-button" (click)="clearNumbers()">Limpar</button>
     </div>
 </div>
