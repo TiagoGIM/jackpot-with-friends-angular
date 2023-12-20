@@ -1,0 +1,14 @@
+
+<div class="wrap">
+    <div class="number-grid">
+        <div *ngFor="let num of allnumbers(); let i = index" class="number-item" >
+            <span *ngIf="selectedNumbers$ | async as selected"  
+                (click)="selectNumber(num, selected.selectedNumbers)" 
+                [class.most-picked]="isMostPicked(num, selected.odds)"
+                >
+                <span [class.selected-mark]="isSelected(num , selected.selectedNumbers)" >
+                    {{ num < 10 ? '0' + num : num }} </span>
+            </span>
+        </div>
+    </div>
+</div>
