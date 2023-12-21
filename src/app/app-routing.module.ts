@@ -10,7 +10,8 @@ import { SiginCardComponent } from './components/sigin-card/sigin-card.component
 import { LoginCardComponent } from './components/login-card/login-card.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: ArticlesComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent, data: { title: 'Login' } ,children:[
     {
       path:'', component: LoginCardComponent
@@ -27,7 +28,6 @@ const routes: Routes = [
   },
   {  path: 'create-ticket/:id', component: CreateTicketComponent,canActivate: [AuthGuard] },
   { path: 'articles', component: ArticlesComponent, canActivate: [AuthGuard] },
-  { path: 'home', component: ArticlesComponent, canActivate: [AuthGuard] },
   { path: '**', component: PageNotFoundComponent },
 ];
 
