@@ -10,51 +10,45 @@
               class="form-control"
               id="email"
               placeholder="enter your email"
+              autocomplete="email"
               required>
           </div>
           <div class="form-group">
-            <label for="password">Nome</label>
+            <label for="userName">Nome</label>
             <input
-              formControlName="name"
-              name="name"
+              formControlName="userName"
+              name="userName"
               type="text"
               required
               class="form-control"
-              id="name"
+              id="userName"
               placeholder="Entre com seu primeiro nome"
-              required>
-          </div>
-          <div class="form-group">
-            <label for="secondName">Sobre nome</label>
-            <input
-              formControlName="secondName"
-              required
-              class="form-control"
-              id="secondName"
-              placeholder="Sobrenome"
+              autocomplete="userName"
               required>
           </div>
           <div class="form-group">
             <label for="password">Senha</label>
             <input
               formControlName="password"
-              name="password"
+              name="new-password"
               type="password"
               required
               class="form-control"
               id="password"
               placeholder="enter a password"
+              autocomplete="new-password"
               required>
           </div>
           <div style="padding-bottom:1.2em ;" class="form-group">
-            <label for="confirmpw">Confirme a senha</label>
+            <label for="confirmPassword">Confirme a senha</label>
             <input
-              formControlName="confirmpw"
-              name="confirmpw"
+              formControlName="confirmPassword"
+              name="new-password"
               type="password"
               required
               class="form-control"
-              id="confirmpw"
+              id="confirmPassword"
+              autocomplete="new-password"
               placeholder="Repita a senha"
               required>
           </div>

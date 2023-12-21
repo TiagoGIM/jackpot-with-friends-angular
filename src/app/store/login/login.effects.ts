@@ -27,6 +27,21 @@ export class LoginEffects {
   )
 );
 
+signin$ = createEffect(() =>
+this.actions$.pipe(
+  ofType(LoginActions.signin),
+  switchMap((user) =>
+  this.authService.signin(user.user).pipe(
+    map((token) => {
+      this.router.navigate(['/login']);
+      return LoginActions.loginSuccess();
+    }),
+    catchError((error: ErrorHttp) => of(LoginActions.loginFailure({ error: "Signin failed" })))
+  )
+)
+)
+);
+
 logout$ = createEffect(
   () => {
     return this.actions$.pipe(

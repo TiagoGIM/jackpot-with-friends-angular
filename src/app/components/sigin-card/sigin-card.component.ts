@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { User } from 'src/app/shared/models/user.mode';
-import { login } from 'src/app/store/login/login.actions';
+import { login, signin } from 'src/app/store/login/login.actions';
 import { selectIsLoading, selectError } from 'src/app/store/login/login.selectors';
 
 @Component({
@@ -14,9 +14,8 @@ export class SiginCardComponent {
   user = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
-    name: new FormControl(''),
-    secondName:new FormControl(''),
-    confirmPw: new FormControl('')
+    userName: new FormControl(''),
+    confirmPassword: new FormControl('')
   });
   error: string | null = ''
   isLoading = false;
@@ -28,8 +27,9 @@ export class SiginCardComponent {
   errorMessage$ = this.store.select(selectError);
 
   onSubmit() {
-    const credentials: User = {...this.user.value
+    const user: User = {...this.user.value
     };
-    this.store.dispatch(login({ user: credentials }))
+    
+    this.store.dispatch(signin({ user }))
   }
 }

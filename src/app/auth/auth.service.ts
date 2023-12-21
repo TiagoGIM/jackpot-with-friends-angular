@@ -25,18 +25,20 @@ export class AuthService {
 
   login(credentials: User): Observable<auth> {
     return this.http.post<auth>(this.API_URL + '/auth/login', credentials).pipe(
-      tap((response) => {
-       // const jwt = JSON.stringify(response.accessToken);
-        //localStorage.setItem('accessToken', jwt);
-        // this.setAuthenticated(true);
-      }),
-      catchError((error) => {
-        console.error('Erro ao fazer login:', error);
-        // this.setAuthenticated(false);
+        catchError((error) => {
         localStorage.removeItem('accessToken');
         return throwError(() => error);
       })
     );
+  }
+
+  signin(user: User) {
+    const userDto = {
+      name : user.userName,
+      password : user.password,
+      email: user.email
+    }
+    return this.http.post<auth>(this.API_URL + '/user/create', userDto)
   }
 
   logout(){
