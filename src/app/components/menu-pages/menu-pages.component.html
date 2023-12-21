@@ -1,5 +1,11 @@
 <div class="menu-btn">
-    <button (click)="handleIsOpen()" >☰</button>
+    <button (click)="handleIsOpen()" *ngIf="isAuth$ | async ; else closedIcon">
+        <i class="material-icons">menu</i>
+    </button>
+        <ng-template #closedIcon>
+            <button><i class="material-icons">login</i></button>
+        </ng-template>
+    
     <div  class="dropdown" [class.isOpen]="isOpen" >
         <ul class="list">
             <li *ngFor="let option of options">

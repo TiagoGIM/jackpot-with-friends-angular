@@ -6,7 +6,7 @@ import { ArticlesComponent } from './pages/articles/articles.component';
 import { TicketListComponent } from './pages/ticket-list/ticket-list.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './auth/auth.guard';
-import { SiginCardComponent } from './component/sigin-card/sigin-card.component';
+import { SiginCardComponent } from './components/sigin-card/sigin-card.component';
 import { LoginCardComponent } from './components/login-card/login-card.component';
 
 const routes: Routes = [

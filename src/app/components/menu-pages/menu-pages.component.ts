@@ -1,4 +1,7 @@
 import { Component, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { LoginState } from 'src/app/store/login/login.reducer';
+import { selectIsAuth } from 'src/app/store/login/login.selectors';
 
 @Component({
   selector: 'jwf-menu-pages',
@@ -6,7 +9,10 @@ import { Component, ElementRef, EventEmitter, HostListener, Input, Output } from
   styleUrls: ['./menu-pages.component.css'],
 })
 export class MenuPagesComponent {
-  constructor(private elementRef: ElementRef) {}
+  constructor(private elementRef: ElementRef,
+    private store: Store<LoginState>) {}
+ 
+  isAuth$ = this.store.select(selectIsAuth)
 
   @HostListener('document:click', ['$event'])
   clickOutside(event: Event) {
@@ -17,16 +23,20 @@ export class MenuPagesComponent {
 
   @Input() options: any = [
     {
-      name: 'Home',
+      label: 'Home',
       value: 'home',
     },
     {
-      name: 'Bilhetes',
+      label: 'Bilhetes',
       value: 'ticket-list',
     },
     {
-      name: 'Estatisticas',
+      label: 'Estatisticas',
       value: 'articles',
+    },
+    {
+      label:'Logout',
+      value: 'Sair'
     },
   ];
   @Output() optionSelected = new EventEmitter<string>();
