@@ -24,6 +24,7 @@ import { LoginCardComponent } from './components/login-card/login-card.component
 import { LoginEffects } from './store/login/login.effects';
 import { AuthInterceptorService } from './auth/auth.interceptor';
 import { NumbersSelectorComponent } from './components/numbers-selector/numbers-selector.component';
+import { SiginCardComponent } from './components/sigin-card/sigin-card.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { NumbersSelectorComponent } from './components/numbers-selector/numbers-
     LoginComponent,
     LoginCardComponent,
     NumbersSelectorComponent,
+    SiginCardComponent,
   ],
   imports: [
     BrowserModule,

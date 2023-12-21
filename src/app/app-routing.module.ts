@@ -6,10 +6,20 @@ import { ArticlesComponent } from './pages/articles/articles.component';
 import { TicketListComponent } from './pages/ticket-list/ticket-list.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './auth/auth.guard';
+import { SiginCardComponent } from './components/sigin-card/sigin-card.component';
+import { LoginCardComponent } from './components/login-card/login-card.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent, data: { title: 'Login' } },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: ArticlesComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent, data: { title: 'Login' } ,children:[
+    {
+      path:'', component: LoginCardComponent
+    }
+    ,{
+      path:'sigin-in', component: SiginCardComponent
+    }
+  ]},
   {
     path: 'ticket-list',
     component: TicketListComponent,
@@ -18,7 +28,6 @@ const routes: Routes = [
   },
   {  path: 'create-ticket/:id', component: CreateTicketComponent,canActivate: [AuthGuard] },
   { path: 'articles', component: ArticlesComponent, canActivate: [AuthGuard] },
-  { path: 'home', component: ArticlesComponent, canActivate: [AuthGuard] },
   { path: '**', component: PageNotFoundComponent },
 ];
 

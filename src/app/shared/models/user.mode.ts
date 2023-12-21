@@ -1,7 +1,8 @@
 export class User {
-    id?: string;
-    email?: string;
-    password?: string;
-    token?: string;
-    isLoading? : boolean;
+    id?: string | null;
+    email?: string | null;
+    password?: string | null;
+    userName?: string | null;
+    token?: string | null;
+    isLoading? : boolean | null;
   }
