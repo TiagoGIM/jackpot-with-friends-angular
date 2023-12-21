@@ -15,12 +15,14 @@ export class LoginCardComponent {
     email: new FormControl(''),
     password:new FormControl(''),
   }); 
-  error : string = ''
+  error : string  | null = '' 
   isLoading = false;
   constructor(private store: Store) {
     this.store.select(selectIsLoading).subscribe(isLoading => (this.isLoading = isLoading));
     this.store.select(selectError).subscribe(error => (this.error = error));
   }
+
+  errorMessage$ = this.store.select(selectError);
   
   onSubmit(){
     const credentials: User = {

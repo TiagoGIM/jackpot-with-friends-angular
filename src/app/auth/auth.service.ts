@@ -26,8 +26,8 @@ export class AuthService {
   login(credentials: User): Observable<auth> {
     return this.http.post<auth>(this.API_URL + '/auth/login', credentials).pipe(
       tap((response) => {
-        const jwt = JSON.stringify(response.accessToken);
-        localStorage.setItem('accessToken', jwt);
+       // const jwt = JSON.stringify(response.accessToken);
+        //localStorage.setItem('accessToken', jwt);
         // this.setAuthenticated(true);
       }),
       catchError((error) => {
@@ -39,7 +39,11 @@ export class AuthService {
     );
   }
 
+  logout(){
+    localStorage.removeItem('accessToken');
+  }
+
   getAccessToken(): string | null {
-    return JSON.parse(localStorage.getItem('accessToken')!);
+    return localStorage.getItem('accessToken');
   }
 }
