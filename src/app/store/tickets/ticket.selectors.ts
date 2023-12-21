@@ -25,7 +25,7 @@ export const mostPickedSelector = createSelector(
   }
 )
 
-// refactring numbers-selector
+// refactoring numbers-selector
 export const editingTicketSelector = createSelector(
   appState,
   (state: ticketState) => state.editingTicket
@@ -54,6 +54,6 @@ export const editingIndexSelector = createSelector(
 
 export const updateTicketSelector = createSelector(
   appState, (state: ticketState) => {
-  return state.editingTicket
-}
+    return state.editingTicket
+  }
 )
