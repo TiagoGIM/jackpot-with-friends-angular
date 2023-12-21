@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { Ticket } from 'src/app/shared/models/ticket.model';
-import { editActiveTicket } from 'src/app/store/tickets/ticket.actions';
 import {
-  mostPickedSelector,
-  selectTicketById,
+  loadHighLightFromMostPicked,
+  loadSelectedNumbersFromTickets,
+  resetEditTicket,
+  updateTicket
+} from 'src/app/store/tickets/ticket.actions';
+import {
+  editingIndexSelector,
+  editingTicketNumbersSelector,
+  updateTicketSelector,
 } from 'src/app/store/tickets/ticket.selectors';
 
 @Component({
@@ -16,16 +20,8 @@ import {
 })
 export class CreateTicketComponent {
 
-  selectedNumbers: number[] = Array(6).fill(null);
-  allNumbers: number[] = [];
-  ticketLength: number = 6;
-  editingIndex = 0;
-
-  constructor(private store: Store<any>, private route: ActivatedRoute) {
-    this.initializeNumbers();
-    this.idParam = this.route.snapshot.params['id'];
-  }
-
+  selectedNumbers$ = this.store.select(editingTicketNumbersSelector)
+  editingIndex$ = this.store.select(editingIndexSelector)
   yearOptions = [
     { value: 2022, label: '2022' },
     { value: 2023, label: '2023' },
@@ -33,52 +29,34 @@ export class CreateTicketComponent {
     { value: 1, label: 'x' },
   ];
 
-  selectTicketById$: Observable<any> | undefined
-  mostPickedNumbersFor2022$ = this.store.select(mostPickedSelector);
 
   idParam!: string;
+  editedTicket$ = this.store.select(updateTicketSelector)
+  allNumbers: number[] = [];
 
-  ngOnInit(): void {
-    this.selectTicketById$ = this.store.select(selectTicketById(this.idParam));
-    this.selectTicketById$.subscribe({
-      next: (data: Ticket) => {
-        this.ticketLength = data?.length
-        if (!!data?.numbers.length) this.selectedNumbers = [...data?.numbers]
-      },
-    });
+  constructor(private store: Store<any>, private route: ActivatedRoute) {
+
+    this.idParam = this.route.snapshot.params['id'];
+    this.store.dispatch(loadSelectedNumbersFromTickets({ id: this.idParam }))
   }
 
-  private initializeNumbers() {
-    const totalNumbers = 60;
-    this.allNumbers = Array.from(
-      { length: totalNumbers },
-      (_, index) => index + 1
-    );
-  }
 
-  selectedYear: number = 1;
-
-  onYearSelected(year: number): void {
-    this.selectedYear = year;
-  }
-
-  invalidNumbers() {
-    return this.selectedNumbers.some(num => num === null);
-  }
-  clearNumbers() {
-    this.selectedNumbers = Array(this.ticketLength).fill(null);
-    this.editingIndex = 0;
-  }
-  saveNumbers() {
-    const editedTicket = {
-      numbers: [...this.selectedNumbers],
-      id: this.idParam,
-      status: '',
-      length: 0
-    }
-
-    this.store.dispatch(editActiveTicket({
-      editedTicket
+  saveNumbersFromStore(bet: any) {
+    const { id, selectedNumbers } = bet
+    if (!!selectedNumbers.length) this.store.dispatch(updateTicket({
+      ticketToUpdate: {
+        id,
+        numbers: selectedNumbers
+      }
     }))
   }
+
+  clearNumbers() {
+    this.store.dispatch(resetEditTicket())
+  }
+
+  onYearSelected(year: number): void {
+    this.store.dispatch(loadHighLightFromMostPicked({ year }));
+  }
+
 }

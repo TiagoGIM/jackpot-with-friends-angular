@@ -1,33 +1,24 @@
 <div class="container">
-    <jwf-ticket-numbers-selector 
-        [mostPickeds]="mostPickedNumbersFor2022$ | async"
-        [year]="selectedYear"
-        [allNumbers]="allNumbers" 
-        [selectedNumbers]="selectedNumbers"
-        [(selectedNumbers)]="selectedNumbers" 
-        [(editingIndex)]="editingIndex" [ticketLength]="ticketLength" />
-    
+    <jwf-numbers-selector></jwf-numbers-selector>
+
     <p class="txt-green-70">Números mais escolhidos no ano:</p>
-    <jwf-year-filter
-    [yearOptions]="yearOptions"
-    (yearSelected)="onYearSelected($event)"/>
+    <jwf-year-filter [yearOptions]="yearOptions" (yearSelected)="onYearSelected($event)" />
     <br>
     <br>
     <h3 class="txt-green-90">
-       Seus números até agora:
+        Números escolhidos:
     </h3>
-    <jwf-numbers-ball 
-        [selectedNumbers]="selectedNumbers" 
-        [(editSelected)]="editingIndex" />
+
+    <jwf-numbers-ball [selectedNumbers]="selectedNumbers$ | async" [editSelected]="editingIndex$ | async" />
     <br>
     <br>
     <br>
     <br>
 
-    
-    <div class="button-group">
-        <button class="save-button" (click)="saveNumbers()" *ngIf="!invalidNumbers()">Salvar</button>
-        <button class="back-button" [routerLink]="['/ticket-list']" *ngIf="invalidNumbers()"> Voltar</button>
+
+    <div class="button-group" *ngIf="editedTicket$ | async as ticket">
+        <button class="back-button" [routerLink]="['/ticket-list']"> Voltar</button>
+        <button class="save-button" (click)="saveNumbersFromStore(ticket)">Salvar</button>
         <button class="clear-button" (click)="clearNumbers()">Limpar</button>
     </div>
 </div>

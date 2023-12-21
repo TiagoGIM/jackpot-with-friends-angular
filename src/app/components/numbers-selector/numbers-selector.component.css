@@ -1,4 +1,4 @@
-.container{
+.wrap{
     min-width: 18rem;
     max-width: 20rem;
     background-color: rgb(255, 244, 196);
@@ -6,10 +6,8 @@
     align-items: center;
     display: flex;
     margin-top: 1rem;
-
-  }
-
-  .number-grid {
+}
+.number-grid {
     padding: 1rem;
     margin: 0;
     max-width: 16.5rem;
