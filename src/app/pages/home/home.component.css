@@ -1,0 +1,12 @@
+.title {
+    display: flex;
+    padding: 0 0 0 1.5em;
+    margin: 0;
+}
+ul{
+    margin-top: 0;
+}
+ul li{
+    color: hsl(120, 97%, 14%);
+
+}

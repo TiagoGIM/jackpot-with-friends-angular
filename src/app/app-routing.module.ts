@@ -8,10 +8,11 @@ import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './auth/auth.guard';
 import { SiginCardComponent } from './components/sigin-card/sigin-card.component';
 import { LoginCardComponent } from './components/login-card/login-card.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: ArticlesComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent, data: { title: 'Login' } ,children:[
     {
       path:'', component: LoginCardComponent
