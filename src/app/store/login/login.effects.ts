@@ -18,7 +18,7 @@ export class LoginEffects {
       this.authService.login(user.user).pipe(
         tap(({ accessToken }) => localStorage.setItem("accessToken", accessToken)),
         map((token) => {
-          this.router.navigate(['/ticket-list']);
+          this.router.navigate(['/home']);
           return LoginActions.loginSuccess();
         }),
         catchError((error: ErrorHttp) => of(LoginActions.loginFailure({ error: "Login failed" })))
