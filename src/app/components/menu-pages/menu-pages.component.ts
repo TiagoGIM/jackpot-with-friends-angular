@@ -38,7 +38,7 @@ export class MenuPagesComponent {
     },
     {
       label: 'Estatisticas',
-      value: 'articles',
+      value: 'results',
     },
     {
       label:'Sair',

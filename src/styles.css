@@ -10,6 +10,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0 5%;
+}
+
+a{
+  color: green;
+  font-style: italic;
+  text-decoration: none;
 }
 
 /* Background Color Classes */
@@ -51,5 +58,9 @@ body {
 }
 
 .txt-green-90 {
+  color: hsl(120, 97%, 14%);
+}
+
+p {
   color: hsl(120, 97%, 14%);
 }
