@@ -22,6 +22,10 @@ export class TicketsService {
     return this.http.get<BetResponse[]>(this.API_URL + '/bet');
   }
 
+  loadOdds():Observable<any> {
+    return this.http.get<any>(this.API_URL + '/bet/odd');
+  }
+
   updateTicket(betTosave: any): Observable<any> {
     let { ticketToUpdate } = betTosave;
     return this.http.patch<any>(this.API_URL + '/bet', ticketToUpdate);

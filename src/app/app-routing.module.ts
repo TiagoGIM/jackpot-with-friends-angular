@@ -9,6 +9,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { SiginCardComponent } from './components/sigin-card/sigin-card.component';
 import { LoginCardComponent } from './components/login-card/login-card.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ResultsComponent } from './pages/results/results.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -29,6 +30,7 @@ const routes: Routes = [
   },
   {  path: 'create-ticket/:id', component: CreateTicketComponent,canActivate: [AuthGuard] },
   { path: 'articles', component: ArticlesComponent, canActivate: [AuthGuard] },
+  {path:'results', component: ResultsComponent},
   { path: '**', component: PageNotFoundComponent },
 ];
 
