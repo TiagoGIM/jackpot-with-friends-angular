@@ -5,6 +5,11 @@
     padding: 10px;
     background-color: #209869;
     color: #fff;
+
+    position: fixed;
+    width: 96vw;
+    margin: 0;
+    top: 0;
   }
   
   .title {

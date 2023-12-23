@@ -1,6 +1,6 @@
 .about {
 
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 1rem;
 }
 
 .pix {
@@ -9,23 +9,11 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  height: 30vh;
 }
 
-.links{
-  margin: 0 5%;
-}
-
-ul {
-  margin-top: 0;
-}
-
-ul li {
-  color: hsl(120, 97%, 14%);
-
-}
 
 .pix-content {
-
   margin-bottom: 1em;
   display: flex;
   align-items: center;
@@ -41,6 +29,27 @@ ul li {
   background-color: #2f6130;
 
 
+}
+
+
+.links{
+  /* margin: 1rem 1.5em; */
+  padding: 1rem 1rem;
+  text-align: start;
+  /* height: 30vh; */
+}
+
+
+
+ul li {
+  color: hsl(120, 97%, 14%);
+  /* padding-bottom: 1rem; */
+  list-style-type: none;
+  text-align: justify;
+}
+
+h2 {
+  margin: 0;
 }
 
 h3 {
@@ -59,19 +68,21 @@ h5 {
 
 .bets {
   background-color: #fff;
-  padding: 1em;
-  color: #4caf50;
+  /* padding: 1em; */
+  color: rgb(76, 175, 80);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  height: 100vh;
 }
 
 
 .bolao-table {
   border-collapse: collapse;
   margin-top: 20px;
+  
 }
 
 th,
@@ -83,4 +94,18 @@ td {
 th {
   background-color: #4caf50;
   color: #fff;
+}
+
+
+/* footer */
+
+.footer{
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a{
+  color: #7bff00;
 }
