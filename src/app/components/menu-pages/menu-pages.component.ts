@@ -1,6 +1,7 @@
 import { Component, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { logout } from 'src/app/store/login/login.actions';
 import { LoginState } from 'src/app/store/login/login.reducer';
 import { selectIsAuth } from 'src/app/store/login/login.selectors';
 
@@ -55,6 +56,7 @@ export class MenuPagesComponent {
 
   handleMenu(option : MenuOption) {
     const  navegateTo = option.value === 'logout' ? 'login' : option.value
+    if(navegateTo==='login') this.store.dispatch(logout())
     this.route.navigate([navegateTo])
     this.isOpen = false;
   }
