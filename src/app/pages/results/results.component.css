@@ -1,9 +1,16 @@
+
+.results-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
 .item-ranking{
  display: flex;
- justify-content: center;
- width: 100%;
+ width: 15em;
  height: 2rem;
- padding-bottom: 0.2em;
+ padding-bottom: 0.4em;
 }
 
 .number{

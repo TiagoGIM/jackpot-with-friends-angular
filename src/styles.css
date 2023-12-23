@@ -10,7 +10,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 5%;
+  margin: 0 24%;
 }
 
 a{
@@ -18,6 +18,21 @@ a{
   font-style: italic;
   text-decoration: none;
 }
+
+section {
+  width: 425px;
+}
+
+@media only screen and (max-width: 425px) {
+  section {
+    width: 100vw;
+  }
+
+  .container{
+    margin: 0 5%;
+  }
+}
+
 
 /* Background Color Classes */
 .bg-green-10 {

@@ -1,11 +1,17 @@
-<div class="container" style="width: 100%;">
-    <h2 class="txt-green-90">
-        Números Mais Votados
-    </h2>
+<div class="results-content">
+
+
+
+    
+    <h3 class="txt-green-90">
+        Mais Votados
+    </h3>
 
     <div class="item-ranking" *ngFor="let item of odds$ | async" >
         <div class="number">{{item.number}}</div>
         <div class="quantity">{{item.quantity}}</div>   
     </div>
+
+    <button *ngIf="!showAll" (click)="showAll = true">Mostrar Todos</button>
 
 </div>

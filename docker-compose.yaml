@@ -24,7 +24,6 @@ services:
       - PORT:${BACKEND_PORT}
     build:
       context: ../jackpot-api
-      target: "${NODE_ENV}"
       dockerfile: Dockerfile
     env_file:
       - .env
