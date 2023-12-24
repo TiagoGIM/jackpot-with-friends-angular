@@ -1,6 +1,9 @@
 .about {
 
-  padding: 0.5rem 1rem;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+
 }
 
 .pix {
@@ -8,12 +11,14 @@
   color: #fff;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   height: 30vh;
 }
 
 
 .pix-content {
+  margin-top: 2rem;
   margin-bottom: 1em;
   display: flex;
   align-items: center;
