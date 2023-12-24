@@ -48,4 +48,8 @@ export class AuthService {
   getAccessToken(): string | null {
     return localStorage.getItem('accessToken');
   }
+
+  ping(): Observable<{message:string}>{
+    return this.http.get<{message:string}>(this.API_URL+'/user/ping')
+  }
 }

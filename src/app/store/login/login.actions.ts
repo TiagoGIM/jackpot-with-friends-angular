@@ -31,4 +31,8 @@ export const signinFailure = createAction(
   props<{ error: string }>()
 )
 
+export const ping = createAction(
+  '[Login] Ping Session',
+)
+
 export const logout = createAction("[Login] Log Out");
