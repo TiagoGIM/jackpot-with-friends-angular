@@ -14,9 +14,5 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.store.dispatch(ping())
-  //   const token = localStorage.getItem('accessToken')
-  //   if (token) this.auth.ping().subscribe(res => {
-  //     if (res.message === 'ok') this.store.dispatch(loginSuccess())
-  //   })
   }
 }

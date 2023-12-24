@@ -8,7 +8,8 @@ export const login = createAction(
 );
 
 export const loginSuccess = createAction(
-  '[Login] Login Success'
+  '[Login] Login Success', 
+  props<{ user : User}>()
 );
 
 export const loginFailure = createAction(

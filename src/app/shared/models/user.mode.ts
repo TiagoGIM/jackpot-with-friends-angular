@@ -5,4 +5,5 @@ export class User {
     userName?: string | null;
     token?: string | null;
     isLoading? : boolean | null;
+    signatureStatus? :string | null;
   }
