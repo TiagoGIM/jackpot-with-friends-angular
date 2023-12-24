@@ -15,6 +15,9 @@ interface MenuOption {
   styleUrls: ['./menu-pages.component.css'],
 })
 export class MenuPagesComponent {
+handleLogin() {
+  this.route.navigate(['login'])
+}
   constructor(private elementRef: ElementRef,
     private store: Store<LoginState>,
     private route : Router) {}

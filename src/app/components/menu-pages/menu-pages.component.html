@@ -3,7 +3,7 @@
         <i class="material-icons">menu</i>
     </button>
         <ng-template #closedIcon>
-            <button><i class="material-icons">login</i></button>
+            <button><i class="material-icons" (click)="handleLogin()">login</i></button>
         </ng-template>
     
     <div  class="dropdown" [class.isOpen]="isOpen" >

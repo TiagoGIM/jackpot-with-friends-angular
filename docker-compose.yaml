@@ -34,3 +34,4 @@ services:
     volumes:
       - ../jackpot-api/:/home/app
       - /home/app/node_modules
+    restart: always
