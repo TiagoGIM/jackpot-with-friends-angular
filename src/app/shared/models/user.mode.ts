@@ -1,7 +1,6 @@
 export class User {
     phoneNumber?: string |null;
     id?: string | null;
-    email?: string | null;
     password?: string | null;
     userName?: string | null;
     token?: string | null;

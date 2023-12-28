@@ -13,7 +13,7 @@ export class DashboardComponent {
   userList$ = this.adminS.loadUsers()
   
   performAction( user: SimpleUser) {
-    this.adminS.updateMemberSignature(user.phoneNumber).subscribe(
+    this.adminS.updateMemberSignature(user).subscribe(
       response => {
         console.log('POST successful', response);
 
