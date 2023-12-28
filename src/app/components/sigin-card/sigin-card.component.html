@@ -1,4 +1,4 @@
-<div class="login-card">
+<!-- <div class="login-card">
     <form  [formGroup]="user" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label style="padding-top: 1rem;" for="email">Email</label>
@@ -57,4 +57,34 @@
     </form>
     <div *ngIf="errorMessage$ | async as errorM">{{ errorM }}</div>
     <a  [routerLink]="''">voltar</a>
-  </div>
+  </div> -->
+<div class="login-card">
+  <form [formGroup]="user" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label style="padding-top: 1rem;" for="phoneNumber">Número de Telefone</label>
+      <input formControlName="phoneNumber" name="phoneNumber" type="tel" required class="form-control" id="phoneNumber"
+        placeholder="ex.:(84) 9-1234-5678" autocomplete="tel" required   mask="(00) 0-0000-0000"/>
+    </div>
+    <div class="form-group">
+      <label for="userName">Nome</label>
+      <input formControlName="userName" name="userName" type="text" required class="form-control" id="userName"
+        placeholder="Entre com seu primeiro nome" autocomplete="userName" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Senha</label>
+      <input formControlName="password" name="new-password" type="password" required class="form-control" id="password"
+        placeholder="enter a password" autocomplete="new-password" required>
+    </div>
+    <div style="padding-bottom:1.2em ;" class="form-group">
+      <label for="confirmPassword">Confirme a senha</label>
+      <input formControlName="confirmPassword" name="new-password" type="password" required class="form-control"
+        id="confirmPassword" autocomplete="new-password" placeholder="Repita a senha" required>
+        <span style="color: red;" *ngIf="user.get('confirmPassword')?.hasError('passwordMismatch') && user.dirty && user.get('confirmPassword')?.touched">
+          As senhas devem ser idênticas.
+        </span>
+    </div>
+    <button type="submit" class="login-btn" [disabled]="!user.valid || isLoading">Criar</button>
+  </form>
+  <div *ngIf="errorMessage$ | async as errorM">{{ errorM }}</div>
+  <a [routerLink]="''">voltar</a>
+</div>

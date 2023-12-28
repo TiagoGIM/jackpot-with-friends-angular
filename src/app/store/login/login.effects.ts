@@ -6,9 +6,10 @@ import { AuthService } from 'src/app/auth/auth.service';
 import * as LoginActions from './login.actions'
 import { Router } from '@angular/router';
 import { User } from 'src/app/shared/models/user.mode';
+import { HttpErrorResponse } from '@angular/common/http';
 export interface ErrorHttp {
   status: number,
-  statusText: string
+  message: string
 }
 @Injectable()
 export class LoginEffects {
@@ -23,11 +24,11 @@ export class LoginEffects {
             return LoginActions.loginSuccess({user: {
               userName: user.userName,
               signatureStatus: user.signatureStatus,
-              email: user.login,
+              phoneNumber: user.login,
               roles: user.role
             }});
           }),
-          catchError((error: ErrorHttp) => of(LoginActions.loginFailure({ error: "Login failed" })))
+          catchError((error: HttpErrorResponse ) => of(LoginActions.loginFailure({error: error.error.message })))
         )
       )
     )
@@ -42,7 +43,9 @@ export class LoginEffects {
             this.router.navigate(['/login']);
             return LoginActions.loginSuccess(user);
           }),
-          catchError((error: ErrorHttp) => of(LoginActions.loginFailure({ error: "Signin failed" })))
+          catchError((error: HttpErrorResponse ) => {
+            console.log(error)
+            return of(LoginActions.loginFailure({ error: error.error.message }))})
         )
       )
     )

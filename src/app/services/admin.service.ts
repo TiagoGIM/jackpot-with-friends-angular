@@ -20,8 +20,8 @@ export class AdminService {
     return this.http.get<SimpleUser[]>(this.API_URL + '/user');
   }
 
-  updateMemberSignature(email :string):Observable<any> {
-    return this.http.post<any>(this.API_URL +'/user/update-signature', {email});
+  updateMemberSignature(user :SimpleUser):Observable<any> {
+    return this.http.post<any>(this.API_URL +'/user/update-signature', user );
   }
 
 

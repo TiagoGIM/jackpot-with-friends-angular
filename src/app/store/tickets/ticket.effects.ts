@@ -5,6 +5,7 @@ import * as TicketsActions from './ticket.actions';
 import { TicketsService } from '../../services/ticket.service';
 import { ErrorHttp } from '../login/login.effects';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()
 export class TicketsEffects {
@@ -15,7 +16,7 @@ export class TicketsEffects {
         this.ticketsService.loadTickets().pipe(
           map((tickets) => TicketsActions.loadTicketsSuccess({ tickets })),
           catchError((error) =>
-            of(TicketsActions.loadTicketsFailure({ error }))
+            of(TicketsActions.loadTicketsFailure({  error: error.error.message  }))
           )
         )
       )
@@ -32,8 +33,8 @@ export class TicketsEffects {
             map((updatedTicket) =>
               TicketsActions.editActiveTicketSuccess({ updatedTicket })
             ),
-            catchError((error: ErrorHttp) =>
-              of(TicketsActions.editActiveTicketFailure({ error: error.statusText }))
+            catchError((error: HttpErrorResponse ) =>
+              of(TicketsActions.editActiveTicketFailure({ error: error.error.message }))
             )
           )
       ),

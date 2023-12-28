@@ -15,7 +15,7 @@ const initialState: LoginState = {
   isLoading: false,
   isAuth: false,
   user : {
-    email : '',
+    phoneNumber : '',
     signatureStatus: null,
     userName: '',
     roles:[]
@@ -27,6 +27,6 @@ export const loginReducer = createReducer(initialState,
   on(loginSuccess, (state , {user}) => ({ ...state, error : null, isAuth:true , isLoading: false , user })),
   on(loginFailure, (state, { error }) => ({ ...state, error, isAuth: false ,isLoading: false })),
   on(logout,(state)=> ({
-    ...state, isAuth : false, user: { email :'', signature:null, userName:''}
+    ...state, isAuth : false, user: { phoneNumber :'', signature:null, userName:''}
   }))
 );

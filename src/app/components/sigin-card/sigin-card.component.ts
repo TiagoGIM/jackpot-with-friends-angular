@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { User } from 'src/app/shared/models/user.mode';
 import { login, signin } from 'src/app/store/login/login.actions';
 import { selectIsLoading, selectError } from 'src/app/store/login/login.selectors';
+
 
 @Component({
   selector: 'jwf-sigin-card',
@@ -12,10 +13,10 @@ import { selectIsLoading, selectError } from 'src/app/store/login/login.selector
 })
 export class SiginCardComponent {
   user = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
-    userName: new FormControl(''),
-    confirmPassword: new FormControl('')
+    phoneNumber: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+    userName: new FormControl('', Validators.required),
+    confirmPassword: new FormControl('',[Validators.required,this.passwordMatchValidator.bind(this), Validators.minLength(6)])
   });
   error: string | null = ''
   isLoading = false;
@@ -30,6 +31,18 @@ export class SiginCardComponent {
     const user: User = {...this.user.value
     };
     
-    this.store.dispatch(signin({ user }))
+    if(this.user.valid) this.store.dispatch(signin({ user }))
+  }
+  private passwordMatchValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    const password = this.user?.get('password')?.value;
+    if (password === undefined) {
+      return null; 
+    }
+    const confirmPassword = control.value;
+
+
+   
+
+    return password === confirmPassword ? null : { 'passwordMismatch': true };
   }
 }

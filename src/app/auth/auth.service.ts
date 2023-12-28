@@ -36,8 +36,9 @@ export class AuthService {
     const userDto = {
       name : user.userName,
       password : user.password,
-      email: user.email
+      phoneNumber: user.phoneNumber
     }
+    console.log(userDto)
     return this.http.post<auth>(this.API_URL + '/user/create', userDto)
   }
 
