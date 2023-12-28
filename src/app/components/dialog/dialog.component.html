@@ -1,0 +1,7 @@
+<div *ngIf="dialogStore.isVisible$ | async" class="overlay">
+  <div class="dialog">
+    <h1 class="txt-green-90">Acesso restrito</h1>
+    <p class="txt-green-70">Você ainda não tem acesso a esta página, confirme seu pagamento no grupo do whatsapp</p>
+    <button class="close-button" (click)="closeDialog()"><i class="material-icons">close</i></button>
+  </div>
+</div>

@@ -29,6 +29,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ResultsComponent } from './pages/results/results.component';
 import { UpPageBtnComponent } from './components/up-page-btn/up-page-btn.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     ResultsComponent,
     UpPageBtnComponent,
     DashboardComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,

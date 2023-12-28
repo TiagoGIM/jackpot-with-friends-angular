@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { loginSuccess, ping } from './store/login/login.actions';
 import { AuthService } from './auth/auth.service';
-import { tap } from 'rxjs';
+import { ping } from './store/login/login.actions';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +13,5 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.store.dispatch(ping())
-    console.log('ping')
   }
 }

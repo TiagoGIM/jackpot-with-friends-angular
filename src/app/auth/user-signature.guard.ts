@@ -8,12 +8,14 @@ import {
 import { Observable, delay, map, of, switchMap } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { selectUserSignature, selectIsAdmin } from '../store/login/login.selectors';
+import { DialogStore } from '../components/dialog/dialog.store';
 @Injectable({
   providedIn: 'root',
 })
 export class SignatureGuard  {
   constructor( public router: Router,
-    private store :Store ) {}
+    private store :Store,
+    private readonly dialogStore : DialogStore ) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -23,7 +25,11 @@ export class SignatureGuard  {
     return this.store.select(selectUserSignature)
     .pipe(
       switchMap(isPayed => isPayed ? of(isPayed) : of(isPayed).pipe(delay(1000))),
-      map(isPayed => isPayed ?? this.router.parseUrl('/home'))
+      map(isPayed => {
+        if(isPayed)return true
+          this.dialogStore.show()
+         return this.router.parseUrl('/home')
+        })
     );
   } 
 }
