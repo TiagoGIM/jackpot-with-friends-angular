@@ -1,4 +1,5 @@
 export class User {
+    phoneNumber?: string |null;
     id?: string | null;
     email?: string | null;
     password?: string | null;
@@ -11,7 +12,7 @@ export class User {
 
 export interface SimpleUser {
   name : string;
-  email: string;
+  phoneNumber: string;
   signatureStatus : SignatureStatus;
 }
 

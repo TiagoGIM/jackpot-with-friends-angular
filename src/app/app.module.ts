@@ -30,6 +30,7 @@ import { ResultsComponent } from './pages/results/results.component';
 import { UpPageBtnComponent } from './components/up-page-btn/up-page-btn.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
     DialogComponent,
   ],
   imports: [
+    NgxMaskDirective, NgxMaskPipe,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -70,7 +72,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
     }),
     
   ],
-  providers: [TicketsEffects,
+  providers: [TicketsEffects,provideNgxMask(),
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
