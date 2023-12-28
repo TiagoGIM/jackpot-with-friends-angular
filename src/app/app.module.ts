@@ -28,6 +28,7 @@ import { SiginCardComponent } from './components/sigin-card/sigin-card.component
 import { HomeComponent } from './pages/home/home.component';
 import { ResultsComponent } from './pages/results/results.component';
 import { UpPageBtnComponent } from './components/up-page-btn/up-page-btn.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { UpPageBtnComponent } from './components/up-page-btn/up-page-btn.compone
     HomeComponent,
     ResultsComponent,
     UpPageBtnComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

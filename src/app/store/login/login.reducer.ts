@@ -17,7 +17,8 @@ const initialState: LoginState = {
   user : {
     email : '',
     signatureStatus: null,
-    userName: ''
+    userName: '',
+    roles:[]
   }
 };
 

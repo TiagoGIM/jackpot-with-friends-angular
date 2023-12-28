@@ -8,6 +8,9 @@
     
     <div  class="dropdown" [class.isOpen]="isOpen" >
         <ul class="list">
+            <!-- <span *ngIf="isAdmin$ |async"></span> -->
+            <li *ngIf="isAdmin$ |async"><a (click)="handleMenu({label: '', value:'dashboard'})">{{'DashBoard'}}</a> </li>
+
             <li *ngFor="let option of options">
                 <a (click)="handleMenu(option)">{{option.label}}</a></li>
         </ul>

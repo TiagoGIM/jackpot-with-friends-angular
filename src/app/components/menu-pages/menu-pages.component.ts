@@ -3,10 +3,10 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { logout } from 'src/app/store/login/login.actions';
 import { LoginState } from 'src/app/store/login/login.reducer';
-import { selectIsAuth } from 'src/app/store/login/login.selectors';
+import { selectIsAdmin, selectIsAuth } from 'src/app/store/login/login.selectors';
 
 interface MenuOption {
-  label : string; value:string
+  label: string; value: string
 }
 
 @Component({
@@ -15,13 +15,13 @@ interface MenuOption {
   styleUrls: ['./menu-pages.component.css'],
 })
 export class MenuPagesComponent {
-handleLogin() {
-  this.route.navigate(['login'])
-}
+  handleLogin() {
+    this.route.navigate(['login'])
+  }
   constructor(private elementRef: ElementRef,
     private store: Store<LoginState>,
-    private route : Router) {}
- 
+    private route: Router) { }
+
   isAuth$ = this.store.select(selectIsAuth)
 
   @HostListener('document:click', ['$event'])
@@ -45,9 +45,9 @@ handleLogin() {
       value: 'results',
     },
     {
-      label:'Sair',
+      label: 'Sair',
       value: 'logout'
-    },
+    }
   ];
   @Output() optionSelected = new EventEmitter<string>();
   isOpen = false;
@@ -57,9 +57,11 @@ handleLogin() {
     this.isOpen = false;
   }
 
-  handleMenu(option : MenuOption) {
-    const  navegateTo = option.value === 'logout' ? 'login' : option.value
-    if(navegateTo==='login') this.store.dispatch(logout())
+  isAdmin$ = this.store.select(selectIsAdmin)
+
+  handleMenu(option: MenuOption) {
+    const navegateTo = option.value === 'logout' ? 'login' : option.value
+    if (navegateTo === 'login') this.store.dispatch(logout())
     this.route.navigate([navegateTo])
     this.isOpen = false;
   }

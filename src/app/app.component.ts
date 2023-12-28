@@ -14,5 +14,6 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.store.dispatch(ping())
+    console.log('ping')
   }
 }

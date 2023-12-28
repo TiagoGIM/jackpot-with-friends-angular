@@ -10,6 +10,9 @@ import { SiginCardComponent } from './components/sigin-card/sigin-card.component
 import { LoginCardComponent } from './components/login-card/login-card.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ResultsComponent } from './pages/results/results.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AdminGuard } from './auth/admin.guard';
+import { SignatureGuard } from './auth/user-signature.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -25,12 +28,13 @@ const routes: Routes = [
   {
     path: 'ticket-list',
     component: TicketListComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, SignatureGuard],
     data: { title: 'Bilhetes' }
   },
-  {  path: 'create-ticket/:id', component: CreateTicketComponent,canActivate: [AuthGuard] },
+  {  path: 'create-ticket/:id', component: CreateTicketComponent },
   { path: 'articles', component: ArticlesComponent, canActivate: [AuthGuard] },
-  {path:'results', component: ResultsComponent},
+  {path:'results', component: ResultsComponent,canActivate: [AuthGuard]},
+  {path:'dashboard', component: DashboardComponent, canActivate: [AuthGuard,AdminGuard]},
   { path: '**', component: PageNotFoundComponent },
 ];
 

@@ -22,8 +22,9 @@ export class LoginEffects {
             this.router.navigate(['/home']);
             return LoginActions.loginSuccess({user: {
               userName: user.userName,
-              signatureStatus: user.signature,
-              email: user.login
+              signatureStatus: user.signatureStatus,
+              email: user.login,
+              roles: user.role
             }});
           }),
           catchError((error: ErrorHttp) => of(LoginActions.loginFailure({ error: "Login failed" })))
