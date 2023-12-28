@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import {
   loadHighLightFromMostPicked,
   loadSelectedNumbersFromTickets,
@@ -10,6 +11,7 @@ import {
 import {
   editingIndexSelector,
   editingTicketNumbersSelector,
+  selectStatusEdited,
   updateTicketSelector,
 } from 'src/app/store/tickets/ticket.selectors';
 
@@ -33,6 +35,7 @@ export class CreateTicketComponent {
   idParam!: string;
   editedTicket$ = this.store.select(updateTicketSelector)
   allNumbers: number[] = [];
+  label$ = this.store.select(selectStatusEdited)
 
   constructor(private store: Store<any>, private route: ActivatedRoute) {
 

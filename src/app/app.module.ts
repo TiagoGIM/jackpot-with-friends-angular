@@ -31,6 +31,7 @@ import { UpPageBtnComponent } from './components/up-page-btn/up-page-btn.compone
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { CountNumbersComponent } from './components/count-numbers/count-numbers.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
     UpPageBtnComponent,
     DashboardComponent,
     DialogComponent,
+    CountNumbersComponent,
   ],
   imports: [
     NgxMaskDirective, NgxMaskPipe,

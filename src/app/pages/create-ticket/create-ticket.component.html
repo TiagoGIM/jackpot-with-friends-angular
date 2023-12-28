@@ -8,8 +8,10 @@
     <h3 class="txt-green-90">
         Números escolhidos:
     </h3>
+    <jwf-count-numbers *ngIf="label$ | async as labels" [nowLength]="labels.editedlength" [totalLenght]="labels.length"></jwf-count-numbers>
 
     <jwf-numbers-ball [selectedNumbers]="selectedNumbers$ | async" [editSelected]="editingIndex$ | async" />
+    
     <br>
     <br>
     <br>

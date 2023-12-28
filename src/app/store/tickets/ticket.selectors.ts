@@ -1,5 +1,6 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { ticketState } from "./ticket.reducers";
+import { state } from "@angular/animations";
 
 export const appState = createFeatureSelector<ticketState>('ticket');
 
@@ -43,6 +44,11 @@ export const editingTicketNumbersSelector = createSelector(
   (state: ticketState) => {
     return state.editingTicket.selectedNumbers
   }
+)
+
+export const selectStatusEdited = createSelector(
+  appState, 
+  (state: ticketState) => { return { length : state.editingTicket.ticketLength, editedlength : state.editingTicket.selectedNumbers.length}}
 )
 
 export const editingIndexSelector = createSelector(
