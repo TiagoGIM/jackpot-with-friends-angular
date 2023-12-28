@@ -22,6 +22,7 @@ services:
     environment:
       - NODE_ENV:${NODE_ENV}
       - PORT:${BACKEND_PORT}
+      - DATABASE_URL:${DATABASE_URL}
     build:
       context: ../jackpot-api
       dockerfile: Dockerfile
@@ -35,3 +36,24 @@ services:
       - ../jackpot-api/:/home/app
       - /home/app/node_modules
     restart: always
+    depends_on:
+      - postgres
+    networks:
+      - app-network
+
+  postgres:
+    image: postgres:alpine
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data 
+    ports:
+      - '5432:5432'
+    networks:
+      - app-network
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=jackpot_db
+    restart: always
+networks:
+  app-network:
+    driver: bridge

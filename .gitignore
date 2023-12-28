@@ -5,6 +5,7 @@
 /tmp
 /out-tsc
 /bazel-out
+/pgdata
 
 # Node
 /node_modules
